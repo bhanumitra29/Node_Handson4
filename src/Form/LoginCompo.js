@@ -9,7 +9,7 @@ const LoginCompo = () => {
     password: "",
   });
   const Navi =useNavigate()
-  const [store, setStore] = useState('');
+  // const [store, setStore] = useState('');
 
   const handleChange = (e) => {
     setData({
@@ -30,7 +30,7 @@ const LoginCompo = () => {
       .post('http://localhost:4003/api/login', data)
       .then((res) => {
         // alert(res.data.msg);
-        setStore(res.data.msg);
+        // setStore(res.data.msg);
         alert(res.data.msg);
         localStorage.setItem('token', res.data.token);
         // setStore(res.data);

@@ -11,7 +11,7 @@ const RegisterCompo = () => {
     password: "",
   });
   const Navi = useNavigate()
-  const [store, setStore] = useState('');
+  // const [store, setStore] = useState('');
 
   const handleChange = (e) => {
     setData({
@@ -32,7 +32,7 @@ const RegisterCompo = () => {
       .post('http://localhost:4003/api/register', data)
       .then((res) => {
         
-        setStore(res.data.msg);
+        // setStore(res.data.msg);
         alert(res.data.msg);
         localStorage.setItem('token',res.data.token)
         Navi('/')
