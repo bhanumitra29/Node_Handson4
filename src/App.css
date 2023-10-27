@@ -1,0 +1,17 @@
+.App {
+    text-align: center;
+ 
+  }
+  
+  .Links{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: bisque;
+    
+  }
+
+  .NavLink{
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: large;
+  }
