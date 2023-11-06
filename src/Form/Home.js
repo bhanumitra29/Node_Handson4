@@ -6,27 +6,30 @@ const Home = () => {
 
     const Navi = useNavigate()
     const token = localStorage.getItem("token")
-    console.log(token)
-
+    // console.log(token)
+   
     useEffect(()=>{
-      if(token){
-        axios.get('http://localhost:4003/',{
+      if ((token) && (token !== "undefined")) {
+        axios.get('https://login-serverapi.onrender.com/api/',{
           headers: {
-            Authorization: `Bearer ${token}`
-
-          }
-        })
-        .then(res=>console.log(res.data))
+            "Authorization": `Bearer ${token}`
+       } })
+       .then((res) => {
+        console.log(res.data);
+    })
+    .catch(err => console.log(err))
       }
       else{
-        Navi("/login")
+        Navi("/register")
       }
     },[token,Navi])
-
-    const handleClick = () =>{
-      localStorage.removeItem('token')
-      Navi('/login')
-    }
+    
+    
+    const handleClick = () => {
+      localStorage.removeItem("token");
+      Navi("/login");
+  }
+    
 
   return (
     <div>

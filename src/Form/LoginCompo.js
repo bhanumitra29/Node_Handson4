@@ -27,14 +27,16 @@ const LoginCompo = () => {
     }
 
     axios
-      .post('http://localhost:4003/api/login', data)
+      .post('https://login-serverapi.onrender.com/api/login', data)
       .then((res) => {
         // alert(res.data.msg);
         // setStore(res.data.msg);
         alert(res.data.msg);
         localStorage.setItem('token', res.data.token);
         // setStore(res.data);
-       Navi("/")
+        if (res.data.msg === "user login successfully") {
+          Navi("/");
+      }
       })
       .catch((error) => {
         console.log(error);
@@ -49,7 +51,7 @@ const LoginCompo = () => {
   return (
     <>
       <h1>LOGIN HERE</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email :</label>
         <input
           type="email"
@@ -68,7 +70,7 @@ const LoginCompo = () => {
           onChange={handleChange}
         ></input>{" "}
         <br /> <br /> <br /> <br />
-        <button onClick={handleSubmit}>
+        <button type="submit">
           Login
         </button>
       </form>

@@ -29,13 +29,15 @@ const RegisterCompo = () => {
     }
 
     axios
-      .post('http://localhost:4003/api/register', data)
+      .post('https://login-serverapi.onrender.com/api/register', data)
       .then((res) => {
         
         // setStore(res.data.msg);
         alert(res.data.msg);
         localStorage.setItem('token',res.data.token)
-        Navi('/')
+        if (res.data.msg === "user login successfully") {
+          Navi("/");
+      }
       })
       .catch((error) => {
         console.log(error);
