@@ -35,6 +35,7 @@ const RegisterCompo = () => {
         // setStore(res.data.msg);
         alert(res.data.msg);
         localStorage.setItem('token',res.data.token)
+        Navi("/login")
         if (res.data.msg === "user login successfully") {
           Navi("/");
       }
